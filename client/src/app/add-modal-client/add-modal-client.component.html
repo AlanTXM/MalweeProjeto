@@ -1,0 +1,72 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-tab-group>
+    <mat-tab label="Cadastro">
+      <mat-form-field appearance="fill"  style="width: 100% ; margin-top: 20px;">
+        <mat-label>Nome Fantasia</mat-label>
+        <input matInput placeholder="Nome" [(ngModel)]="fantasyName">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Razão Social</mat-label>
+        <input matInput placeholder="Razão Social" [(ngModel)]="socialreason">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>CNPJ</mat-label>
+        <input matInput placeholder="CNPJ" type="text" [(ngModel)]="cnpj">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Cliente desde</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+      <mat-card-actions style="text-align: center;">
+        <button  mat-raised-button class="button" (click)="postClient()">Confirmar</button>
+      </mat-card-actions>
+    </mat-tab>
+    <mat-tab label="Opcional"> 
+      <h2 style="text-align: center; margin-top: 20px;">Adicionar um endereço</h2>
+      <app-dropdown [array]="client" [idField]="'id'" [textField]="'fantasyName'" [title]="'Client'" [(ngModel)]="selectedClient"></app-dropdown>
+      <br>
+      <mat-form-field appearance="fill" style="width: 25%; margin-right: 2%;">
+        <mat-label>CEP</mat-label>
+        <input matInput placeholder="CEP" [(ngModel)]="cep">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 56%;">
+        <mat-label>Rua</mat-label>
+        <input matInput placeholder="Rua" [(ngModel)]="rua">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 15%; float: right; margin-left: 2%;">
+        <mat-label>Número</mat-label>
+        <input matInput placeholder="Número" type="number" [(ngModel)]="numero">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 35%; margin-right: 2%;">
+        <mat-label>Bairro</mat-label>
+        <input matInput placeholder="Bairro" [(ngModel)]="bairro">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 40%;">
+        <mat-label>Cidade</mat-label>
+        <input matInput placeholder="Cidade" [(ngModel)]="cidade">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 21%; float: right;">
+        <mat-label>Estado</mat-label>
+        <input matInput placeholder="Estado" [(ngModel)]="estado">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" style="width: 49%;">
+        <mat-label>Referência</mat-label>
+        <input matInput placeholder="Ponto de referência" [(ngModel)]="pReferencia">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 49%; float: right;">
+        <mat-label>Complemento</mat-label>
+        <input matInput placeholder="Complemento" [(ngModel)]="complemento">
+      </mat-form-field>
+      
+      <mat-card-actions style="text-align: center;">
+        <button  mat-raised-button class="button" (click)="postAddress()" >Confirmar</button>
+      </mat-card-actions>
+    </mat-tab>
+</mat-tab-group>

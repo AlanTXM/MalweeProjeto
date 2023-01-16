@@ -1,0 +1,20 @@
+<h2>Detalhes dos grupos</h2>
+<table>
+    <table class="paleBlueRows">
+        <thead>
+        <tr>
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Grupo ID</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let grupo of grupos | filter : search;">
+        <td style="width: 50px;">{{grupo.id}}</td>
+        <td>{{grupo.description}}</td>
+        <td style="width: 100px;">{{grupo.fkGroup}}</td>
+    </tr>
+        </tbody>
+    </table>
+</table>

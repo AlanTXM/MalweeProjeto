@@ -1,0 +1,21 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-card-content>
+    <mat-card-title>
+      <h2 style="text-align: center; margin-top: 20px;">Cadastrar Produto</h2>
+    </mat-card-title>
+    <app-dropdown [array]="group" [idField]="'id'" [textField]="'description'" [title]="'Grupo'" [(ngModel)]="selectedGroup"></app-dropdown>
+    <app-dropdown [array]="subgroup" [idField]="'id'" [textField]="'description'" [title]="'Sub-grupo'" [(ngModel)]="selectedSubgroup"></app-dropdown> 
+    <app-dropdown [array]="colection" [idField]="'id'" [textField]="'description'" [title]="'Coleção'" [(ngModel)]="selectedColection"></app-dropdown> 
+    <br>
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <input matInput placeholder="Descrição" [(ngModel)]="description">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <input matInput placeholder="Preço" type="number" min="1"[(ngModel)]="salePrice">
+    </mat-form-field>
+    <mat-card-actions style="text-align: center;">
+      <button  mat-raised-button class="button" (click)="postProduct()">Confirmar</button>
+    </mat-card-actions>
+  </mat-card-content>
+  

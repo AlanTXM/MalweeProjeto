@@ -1,0 +1,68 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-tab-group>
+    <mat-tab label="Detalhes do pedido">
+        <mat-card-content>
+          <br>
+            <h2>AQUI ESTÃO AS INFORMAÇÕES SOBRE O PEDIDO</h2>
+            <table class="paleBlueRows">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Produto</th>
+                        <th>Desconto</th>
+                        <th>Total</th>
+                        <th>Emissão e entrega</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of requestProduct">
+                        <td>{{request.requestP2_fantasyName}}</td>
+                        <td>{{request.requestP_description}}</td>
+                        <td>{{request.discount | percent }}</td>
+                        <td>{{request.total}}</td>
+                        <td>{{request.issuanceDate | date : 'dd/MM/yyyy'}} - {{request.deliveryDate | date : 'dd/MM/yyyy'}}</td>
+                        <td><button mat-raised-button class="button" (click)="editRequestProductModal(request, id, fkRequest, fkProduct,quantity, discount, unitaryValue,  addition, total)"><mat-icon>more_horiz</mat-icon></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Editar">
+        <app-dropdown [array]="client" [idField]="'id'" [textField]="'fantasyName'" [title]="'Cliente'" [(ngModel)]="selectedClient"></app-dropdown>
+          <app-dropdown [array]="address" [idField]="'id'" [textField]="'rua'" [title]="'Endereço'" [(ngModel)]="selectedAddress"></app-dropdown>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Data de emissão</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="deliveryDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+              <br>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Data de entrega</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="issuanceDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Total</mat-label>
+                <input type="number" matInput placeholder="Total" [(ngModel)]="total">
+              </mat-form-field>
+              <mat-card-actions style="text-align: center;">
+                <button mat-raised-button class="button" (click)="putRequest()">Confirmar</button>
+              </mat-card-actions>
+    </mat-tab>
+    <mat-tab label="Deletar">
+      <mat-card-content>
+        <h2 style="text-align: center; margin-top: 20px;">ATENÇÃO: Deseja excluir este item?</h2>
+        <mat-card-actions style="text-align: center;">
+          <button mat-raised-button class="button" (click)="deleteRequest()">Confirmar</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-tab>
+</mat-tab-group>

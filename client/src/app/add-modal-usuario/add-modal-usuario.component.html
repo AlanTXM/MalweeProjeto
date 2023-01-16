@@ -1,0 +1,26 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+        <mat-card-content>
+                <h2 style="text-align: center; margin-top: 20px;">CADASTRAR UM USUÁRIO</h2>
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Digite" [(ngModel)]="name">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Digite" [(ngModel)]="username">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-label>Senha</mat-label>
+                    <input matInput placeholder="Digite" [(ngModel)]="password">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-label>Confirmar Senha</mat-label>
+                    <input matInput placeholder="Digite" [(ngModel)]="cpassword">
+                </mat-form-field>
+                <mat-card-actions style="text-align: center;">
+                    <button mat-raised-button color="primary" (click)="postUsuario()">Confirmar</button>
+                </mat-card-actions>
+        </mat-card-content> 
+
+
+

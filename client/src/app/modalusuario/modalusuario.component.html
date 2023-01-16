@@ -1,0 +1,42 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-tab-group>
+    <mat-tab label="Senha">
+        <h2 style="text-align: center; margin-top: 20px;">TROCAR SENHA DE USUÁRIO</h2>
+        <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="password">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Confirmar senha</mat-label>
+            <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="cpassword">
+        </mat-form-field>
+        <mat-card-actions  style="text-align: center;">
+            <button mat-raised-button class="button" (click)="editUsuario2()">Confirmar</button>
+        </mat-card-actions>
+    </mat-tab>
+    <mat-tab label="Editar">
+        <mat-card-content>
+            <h2 style="text-align: center; margin-top: 20px;">EDITAR UM USUÁRIO</h2>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="username">
+            </mat-form-field>
+            <mat-card-actions style="text-align: center;">
+                <button mat-raised-button class="button" (click)="editUsuario()">Confirmar</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Deletar">
+        <mat-card-content>
+             <h2 style="text-align: center; margin-top: 20px;">ATENÇÃO: Deseja excluir este item?</h2>
+          <mat-card-actions style="text-align: center;">
+            <button mat-raised-button class="button" (click)="usuarioDelete()">Confirmar</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-tab>
+</mat-tab-group>

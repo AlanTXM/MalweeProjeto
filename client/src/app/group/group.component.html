@@ -1,0 +1,30 @@
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<mat-card class="firstpage">
+    <h1>GRUPO</h1> 
+    <mat-form-field  appearance="fill">
+        <mat-label>Buscar grupo</mat-label>
+        <input matInput placeholder="Digite" [(ngModel)]="search">
+        <button mat-icon-button matSuffix (click)="postGroupModal()" [attr.aria-label]="'Addgroup'">
+            <mat-icon>add</mat-icon>
+        </button>
+      </mat-form-field>
+        <table class="paleBlueRows">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let grupo of grupos | filter : search;">
+                    <td style="width: 50px;">{{grupo.id}}</td>
+                    <td>{{grupo.description}}</td>
+                    <td style="width: 150px;">
+                        <button mat-raised-button class="button" (click)="editGroupModal(grupo, grupo.id)"><mat-icon>edit</mat-icon></button>
+                        <button mat-raised-button class="button" (click)="getGroupModal()"><mat-icon>more_horiz</mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</mat-card>

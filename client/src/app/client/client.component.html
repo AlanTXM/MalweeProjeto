@@ -1,0 +1,34 @@
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<mat-card class="firstpage">
+    <img src="https://grupomalwee.com.br/wp-content/themes/grupo-malwee-theme/static/images/brands/logo-grupo-malwee.png" alt="Logo Grupo Malwee" width="205px" height="34px">
+    <br>
+    <mat-form-field  appearance="fill">
+        <mat-label>Buscar cliente</mat-label>
+        <input matInput placeholder="Digite" [(ngModel)]="search">
+        <button mat-icon-button matSuffix [attr.aria-label]="'Addgroup'">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-form-field>
+    <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome Fantasia</th>
+                <th>CNPJ</th>
+                <th>Razão Social</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes | filter : search;">
+                <td><b>{{cliente.id}}</b></td>
+                <td>{{cliente.fantasyName}}</td>
+                <td>{{cliente.cnpj}}</td>
+                <td>{{cliente.socialreason}}</td>
+                <td>
+                    <button mat-raised-button (click)="patchclient(cliente)"><mat-icon>delete</mat-icon></button>
+                    <button mat-raised-button (click)="toggle2()"><mat-icon>edit</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</mat-card>

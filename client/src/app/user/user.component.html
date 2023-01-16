@@ -1,0 +1,31 @@
+<mat-card class="firstpage">
+    <h1>CLIENTE</h1>
+    <mat-form-field appearance="fill" style="width: 100%; ">
+        <mat-label>Buscar clientes</mat-label>
+        <input matInput placeholder="Digite" [(ngModel)]="search">
+        <button mat-icon-button matSuffix (click)="modalPostClient()" [attr.aria-label]="'Addgroup'"> <mat-icon>add</mat-icon></button>
+    </mat-form-field>
+    <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome Fantasia</th>
+                <th style="width: 200px;">CNPJ</th>
+                <th>Razão Social</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clients | filter : search;">
+                <td style="width: 50px;">{{client.id}}</td>
+                <td>{{client.fantasyName}}</td>
+                <td style="width: 100px;">{{client.cnpj}}</td>
+                <td>{{client.socialreason}}</td>
+                <td style="width: 150px">
+                    <button mat-raised-button class="button" (click)="modalEditClient(client, client.id, client.socialreason, client.fantasyName)"><mat-icon>edit</mat-icon></button>
+                    <button mat-raised-button class="button"><mat-icon>more_horiz</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+</mat-card>

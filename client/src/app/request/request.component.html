@@ -1,0 +1,36 @@
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<mat-card class="firstpage"> 
+    <h1>PEDIDOS</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>Buscar pedidos</mat-label>
+        <input matInput placeholder="Digite" [(ngModel)]="search">
+        <button mat-icon-button matSuffix (click)="postRequestModal()" [attr.aria-label]="'Addgroup'">
+            <mat-icon>add</mat-icon>
+        </button>
+      </mat-form-field>
+        <table  class="paleBlueRows">
+            <thead>
+                <tr>
+                    <th>N° pedido</th>
+                    <th>Cliente</th>
+                    <th>Data de emissão</th>
+                    <th>Data de entrega</th>
+                    <th>Endereço</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+           <tbody>
+            <tr *ngFor="let pedido of requests | filter : search;">
+                <td style="width: 70px;">{{pedido.id}}</td>
+                <td>{{pedido.request_fantasyName}}</td>
+                <td>{{pedido.issuanceDate | date : 'dd/MM/yyyy'}}</td>
+                <td>{{pedido.deliveryDate | date : 'dd/MM/yyyy'}}</td>
+                <td>{{pedido.request2_rua}}</td>
+                <td>R$ {{pedido.total}}</td>
+                <td><button mat-raised-button class="button" (click)="editRequestModal(pedido, pedido.id, pedido.fkClient, pedido.fkAddress, pedido.issuanceDate, pedido.deliveryDate, pedido.total)"><mat-icon>more_horiz</mat-icon></button></td>
+            </tr>
+           </tbody>
+        </table>
+</mat-card>
+

@@ -1,0 +1,35 @@
+<mat-card class="firstpage">
+    <h1>PRODUTO</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>Buscar produtos</mat-label>
+        <input matInput placeholder="Digite" [(ngModel)]="search">
+        <button mat-icon-button matSuffix (click)="postProduct()" [attr.aria-label]="'Addgroup'"> <mat-icon>add</mat-icon></button>
+    </mat-form-field>
+    <table class="paleBlueRows">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Grupo</th>
+                <th>Sub-grupo</th>
+                <th>Coleção</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products | filter : search;">
+                <td style="width: 50px;">{{product.id}}</td>
+                <td>{{product.description}}</td>
+                <td style="width: 100px;">R$ {{product.salePrice}}</td>
+                <td style="width: 100px;">{{product.group_description}}</td>
+                <td style="width: 120px;">{{product.subgroup_description}}</td>
+                <td style="width: 100px;">{{product.colection_description}}</td>
+                <td style="width: 150px;">
+                    <button mat-raised-button class="button" (click)="editProduct(product, product.id,product.fkGroup,product.fkSubGroup,product.fkColection)"><mat-icon>edit</mat-icon></button>
+                    <button mat-raised-button class="button"><mat-icon>more_horiz</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+</mat-card>

@@ -1,0 +1,53 @@
+<mat-tab-group>
+    <mat-tab label="Editar">
+        <mat-card-content>
+            <h2 style="text-align: center; margin-top: 20px;">EDITAR UM ENDEREÇO</h2>
+            <mat-form-field appearance="fill" style="width: 20%; margin-right: 10px; margin-top: 20px;">
+                <mat-label>CEP</mat-label>
+                <input matInput placeholder="CEP" [(ngModel)]="cep">
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="width: 42%; margin-right: 10px;">
+                <mat-label>Rua</mat-label>
+                <input matInput placeholder="Rua" [(ngModel)]="rua">
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="width: 15%; margin-right: 10px;">
+                <mat-label>Número</mat-label>
+                <input matInput placeholder="Número" type="number" [(ngModel)]="numero">
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="width: 19%;">
+                <mat-label>Bairro</mat-label>
+                <input matInput placeholder="Bairro" [(ngModel)]="bairro">
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="width: 50%;">
+                <mat-label>Cidade</mat-label>
+                <input matInput placeholder="Cidade" [(ngModel)]="cidade">
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="float: right; width: 48%;">
+                <mat-label>Estado</mat-label>
+                <input matInput placeholder="Estado" [(ngModel)]="estado">
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill" style="width: 50%;">
+                <mat-label>Referência</mat-label>
+                <input matInput placeholder="Ponto de referência" [(ngModel)]="pReferencia">
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="float: right; width: 48%;">
+                <mat-label>Complemento</mat-label>
+                <input matInput placeholder="Complemento" [(ngModel)]="complemento">
+              </mat-form-field>
+          <mat-card-actions>
+            <button  mat-raised-button class="button" (click)="editAddress()" style="margin-left: 400px;">Confirmar</button>
+            <button  mat-raised-button class="button" (click)="onNoClick()"><mat-icon>clear</mat-icon></button>
+          </mat-card-actions>
+        </mat-card-content>
+        <mat-tab label="Deletar">
+            <mat-card-content>
+              <h2 style="text-align: center; margin-top: 20px;">ATENÇÃO: Deseja excluir este item?</h2>
+              <mat-card-actions>
+                <button mat-raised-button class="button" (click)="deleteAddress()" style="margin-left: 400px;">Confirmar</button>
+                <button mat-raised-button class="button" (click)="onNoClick()"><mat-icon>clear</mat-icon></button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-tab>
+        </mat-tab>
+</mat-tab-group>

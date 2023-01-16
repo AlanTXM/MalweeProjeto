@@ -1,0 +1,58 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-tab-group>
+    <mat-tab label="Editar">
+        <mat-card-content style="height: 300px;">
+            <h2 style="text-align: center; margin-top: 20px;">EDITAR UM CLIENTE</h2>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Nome Fantasia</mat-label>
+                <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="fantasyName">
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Razão Social</mat-label>
+                <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="socialreason">
+            </mat-form-field>
+            <mat-card-actions style="text-align: center;">
+                <button mat-raised-button class="button" (click)="editClient()">Confirmar</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Endereço do cliente">
+        <table class="paleBlueRows">
+          <thead>
+              <tr>
+                <th>Cep</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Número</th>       
+                <th></th>     
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let addressClient of address | filter : search;">
+                <td>{{addressClient.cep}}</td>
+                  <td>{{addressClient.rua}}</td>
+                  <td>{{addressClient.bairro}}</td>
+                  <td>{{addressClient.cidade}}</td>
+                  <td>{{addressClient.estado}}</td>
+                  <td>{{addressClient.numero}}</td>
+                  <td style="width: 150px;">
+                      <button mat-raised-button class="button" (click)="deleteAddress()"><mat-icon>delete</mat-icon></button>
+                      <button mat-raised-button class="button" (click)="modalEditAddress(addressClient.cep, addressClient.rua, addressClient.bairro, addressClient.cidade, addressClient.estado, addressClient.numero, addressClient.complemento, addressClient.pReferencia)"><mat-icon>edit</mat-icon></button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      </mat-tab>
+      <mat-tab label="Deletar">
+        <mat-card-content>
+          <h2 style="text-align: center; margin-top: 20px;">ATENÇÃO: Deseja excluir este item?</h2>
+          <mat-card-actions style="text-align: center;">
+            <button mat-raised-button class="button" (click)="deleteClient(clients)">Confirmar</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-tab>
+</mat-tab-group>

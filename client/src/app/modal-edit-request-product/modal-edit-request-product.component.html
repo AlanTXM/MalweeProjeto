@@ -1,0 +1,32 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-tab-group>
+  <mat-tab label="Editar produto pedido">
+    <mat-card>
+      <mat-card-content>
+        <app-dropdown [array]="product" [idField]="'id'" [textField]="'description'" [title]="'Product'" [(ngModel)]="selectedProduct"></app-dropdown>
+        <app-dropdown [array]="product" [idField]="'id'" [textField]="'salePrice'" [title]="'Valor Unitário'" [(ngModel)]="unitaryValue"></app-dropdown>
+        <app-dropdown [array]="client" [idField]="'id'" [textField]="'id'" [title]="'Pedido'" [(ngModel)]="selectedClient"></app-dropdown>
+        <br>
+        <mat-form-field appearance="fill" style="width: 18%; margin-right: 10px;">
+          <mat-label>Quantidade</mat-label>
+          <input type="number" matInput [(ngModel)]="quantity">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 25%; margin-right: 10px;">
+          <mat-label>Desconto (%)</mat-label>
+          <input type="number" matInput [(ngModel)]="discount" >
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 25%;">
+          <mat-label>Adição</mat-label>
+          <input type="number" matInput [(ngModel)]="addition">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 26%;float: right;">
+          <mat-label>Total</mat-label>
+          <input type="number" matInput [(ngModel)]="total">
+        </mat-form-field>
+        <mat-card-actions style="text-align: center;">
+          <button mat-raised-button class="button" (click)="editRequestProduct()">Confirmar</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

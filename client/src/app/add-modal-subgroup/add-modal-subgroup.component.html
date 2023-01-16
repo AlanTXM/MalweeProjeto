@@ -1,0 +1,13 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+        <mat-card-content>
+                <h2 style="text-align: center; margin-top: 20px;">CADASTRAR UM SUB-GRUPO</h2>
+                <app-dropdown [array]="subgroup" [idField]="'id'" [textField]="'description'" [title]="'Grupo'" [(ngModel)]="selectedGroup"></app-dropdown>
+                <mat-form-field style="width: 100%;" appearance="fill">
+                    <mat-label>Cadastrar sub-grupo</mat-label>
+                    <input matInput placeholder="Digite" [(ngModel)]="description">
+                </mat-form-field>
+                <mat-card-actions style="text-align: center;">
+                    <button mat-raised-button class="button" (click)="postsubgroup()">Confirmar</button>
+                </mat-card-actions>
+        </mat-card-content> 
+

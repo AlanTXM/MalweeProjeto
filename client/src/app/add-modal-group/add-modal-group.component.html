@@ -1,0 +1,13 @@
+ <span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+    <mat-card-content>
+        <h2 style="text-align: center;">CADASTRAR UM NOVO GRUPO</h2>
+        <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Cadastrar grupo</mat-label>
+            <input matInput placeholder="Digite" [(ngModel)]="description" >
+        </mat-form-field>
+        <mat-card-actions style="text-align: center;">
+            <button mat-raised-button color="primary"  (click)="postgroup()">Confirmar</button>
+        </mat-card-actions>
+</mat-card-content>
+             
+

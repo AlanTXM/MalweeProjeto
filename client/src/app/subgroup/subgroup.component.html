@@ -1,0 +1,30 @@
+<mat-card class="firstpage"> 
+    <h1>SUBGRUPO</h1>
+    <mat-form-field  appearance="fill">
+        <mat-label>Buscar sub-grupo</mat-label>
+        <input matInput placeholder="Digite" [(ngModel)]="search">
+        <button mat-icon-button matSuffix (click)="PostSubgroupModal()" [attr.aria-label]="'Addgroup'" [attr.aria-pressed]="add"><mat-icon>add</mat-icon></button>
+      </mat-form-field>
+      <table class="paleBlueRows">
+        <thead>
+        <tr>
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Grupo</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let subgrupo of subGroup | filter : search;">
+        <td style="width: 50px;">{{subgrupo.id}}</td>
+        <td>{{subgrupo.description}}</td>
+        <td style="width: 100px;">{{subgrupo.group_description}}</td>
+        <td style="width: 150px;">
+            <button mat-raised-button class="button" (click)="EditSubgroupModal(subgrupo,subgrupo.id,subgrupo.fkGroup)"><mat-icon>edit</mat-icon></button>
+            <button mat-raised-button class="button"><mat-icon>more_horiz</mat-icon></button>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+</mat-card>
+<mat-card>

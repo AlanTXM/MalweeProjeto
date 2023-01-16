@@ -1,0 +1,12 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+        <mat-card-content>
+                <h2 style="text-align: center; margin-top: 20px;">CADASTRAR UMA COLEÇÃO</h2>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <mat-label>Cadastrar coleção</mat-label>
+                    <input matInput placeholder="Digite" [(ngModel)]="description">
+                </mat-form-field>
+                <mat-card-actions style="text-align: center;">
+                    <button mat-raised-button color="primary" (click)="postcolection()">Confirmar</button>
+                </mat-card-actions>
+        </mat-card-content> 
+

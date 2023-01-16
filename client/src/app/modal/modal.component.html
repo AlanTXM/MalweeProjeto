@@ -1,0 +1,24 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-tab-group>
+    <mat-tab label="Editar">
+        <mat-card-content>
+            <h2 style="text-align: center; margin-top: 20px;">EDITAR UM GRUPO</h2>
+            <mat-form-field style="width: 100%;" appearance="fill">
+                <mat-label>Digite a descrição</mat-label>
+                <input matInput placeholder="Digite uma nova descrição" type="text" [(ngModel)]="description">
+            </mat-form-field>
+            <br>
+            <mat-card-actions style="text-align: center;">
+                <button mat-raised-button class="button" (click)="editGroup()">Confirmar</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Deletar">
+        <mat-card-content>
+             <h2 style="text-align: center; margin-top: 20px;">ATENÇÃO: Deseja excluir este item?</h2>
+          <mat-card-actions style="text-align: center;">
+            <button mat-raised-button class="button" (click)="deleteGroup()">Confirmar</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-tab>
+</mat-tab-group>

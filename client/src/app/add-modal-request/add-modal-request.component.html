@@ -1,0 +1,66 @@
+<span (click)="onNoClick()" style="float: right;"><mat-icon>clear</mat-icon></span>
+<mat-card-content>
+    <h2 style="text-align: center;">Cadastrar um pedido</h2>
+    <mat-tab-group>
+        <mat-tab label="Pedido">
+          <br>
+          <app-dropdown [array]="client" [idField]="'id'" [textField]="'fantasyName'" [title]="'Cliente'" [(ngModel)]="selectedClient"></app-dropdown>
+          <app-dropdown [array]="address" [idField]="'id'" [textField]="'rua'" [title]="'Endereço'" [(ngModel)]="selectedAddress"></app-dropdown>
+            <br>
+            <mat-form-field appearance="fill" style="float: left; width: 48%;">
+                <mat-label>Data de emissão</mat-label >
+                <input matInput [matDatepicker]="picker" [(ngModel)]="issuanceDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="float: right; width: 48%;">
+                <mat-label>Data de entrega</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="deliveryDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Total</mat-label>
+                <input type="number" matInput placeholder="Total" [(ngModel)]="total">
+              </mat-form-field>
+              <mat-card-actions style="text-align: center;">
+                <button mat-raised-button class="button" (click)="postRequest()">Confirmar</button>
+              </mat-card-actions>
+        </mat-tab>
+        <mat-tab label="Pedido de produto">
+          <mat-card>
+            <mat-card-content>
+              <app-dropdown [array]="product" [idField]="'id'" [textField]="'description'" [title]="'Product'" [(ngModel)]="selectedProduct"></app-dropdown>
+              <app-dropdown [array]="product" [idField]="'id'" [textField]="'salePrice'" [title]="'Valor Unitário'" [(ngModel)]="unitaryValue"></app-dropdown>
+              <app-dropdown [array]="client" [idField]="'id'" [textField]="'id'" [title]="'Pedido'" [(ngModel)]="selectedClient"></app-dropdown>
+              <br>
+              <mat-form-field appearance="fill" style="width: 100px;">
+                <mat-label>Quantidade</mat-label>
+                <input type="number" matInput [(ngModel)]="quantity">
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill" style="width: 100px;">
+                <mat-label>Desconto (%)</mat-label>
+                <input type="number" matInput [(ngModel)]="discount" >
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill" style="width: 100px;">
+                <mat-label>Adição</mat-label>
+                <input type="number" matInput [(ngModel)]="addition">
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill" style="width: 90px;">
+                <mat-label>Total</mat-label>
+                <input type="number" matInput [(ngModel)]="total">
+              </mat-form-field>
+              <mat-card-actions style="text-align: center;">
+                <button mat-raised-button class="button" (click)="postRequestProduct()">Confirmar</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card-content>
